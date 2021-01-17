@@ -9,6 +9,14 @@
              @input="handleInput"
              />
         </div>
+        <div>
+            <ul>
+            <li v-for="item in apiResults" :key="item.id">
+                <p>{{ item.overview }}</p>
+                
+                </li>    
+            </ul>    
+        </div>
     </div>
 </template>
 <script>
@@ -27,20 +35,24 @@ export default {
     data () {
         return {
             searchValue: '',
+            apiResults: [],
         }
     },
+    
     methods: {
+        
         handleInput() {
             axios.get(`${api}search/movie?api_key=${apiKey}&query=${this.searchValue}`)
                 .then((response) => {
-                    console.log(response);
+                    this.apiResults = response.data.results;
+                    console.log(this.apiResults);
+                    // console.log(response.data.results);
                 })
                 .catch((error) =>{
                     console.log(error);
                 });
         },
     },
-    
 };
 </script>
 
