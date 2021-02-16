@@ -1,5 +1,8 @@
 <template>
   <div class="login-page-wrapper">
+      
+            <Navigation></Navigation>
+        
     <div class="login-page-input-wrapper">
         <div class="login-page-logo"></div>
         <p>Zaloguj się</p>
@@ -11,37 +14,27 @@
 </template>
 
 <script>
-import New from "../components/New";
-
+import Navigation from '../components/Navigation.vue';
 
 export default {
+  components: { Navigation },
 name: 'LoginPage',
 };
 </script>
-<style lang="scss">
-
-
-body {
-    width: 100%;
-    height: 100vh;
-    margin: 0px;
-    padding: 0px;
-    background-size: auto;
-    background-image: url("../assets/slider-bg.png");
-    background-repeat: no-repeat;
-    }
-
-#nav {
-    display: none;
-}
+<style lang="scss" scoped>
 
 .login-page-wrapper {
 font-size: 14px;
 width: 100%;
 height: 100vh;
+margin: 0px;
+    padding: 0px;
 display: flex;
 justify-content: center;
 align-items: center;
+background-size: auto;
+background-image: url("../assets/slider-bg.png");
+background-repeat: no-repeat;
 
 p {
 font-size: 30px;
@@ -71,7 +64,8 @@ font-size: 30px;
             display: block;
             width: 80%;
             height: 50px;
-            margin: 30px;
+            margin: auto;
+            margin-top: 30px;
             padding: 5px;
         }
 
@@ -80,16 +74,15 @@ font-size: 30px;
         }
 
         .submit {
-            margin: auto;
             border: none;
             width: 150px;
             background-color: #FFC200;
         }
         .submit:focus {
-            cursor:pointer;
             transition-duration: 0.4s;
         }
         .submit:hover {
+            cursor: pointer;
             opacity: 0.7;
         }
         

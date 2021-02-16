@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import SearchFilm from '../views/SearchFilm.vue';
 import LoginPage from '../views/LoginPage.vue';
+import Registration from '../views/Registration.vue';
+import SettingsPage from '../views/SettingsPage.vue'
+import FilmDetails from '../views/FilmDetails.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +24,21 @@ const routes = [
     path: '/loginpage',
     name: 'LoginPage',
     component: LoginPage
+  },
+  {
+    path: '/registration',
+    name: 'Registration',
+    component: Registration
+  },
+  { 
+  path: '/settings',
+  name: 'SettingsPage',
+  component: SettingsPage
+  },
+  {
+    path: '/filmdetails',
+    name: 'FilmDetails',
+    component: FilmDetails
   }
 ]
 
