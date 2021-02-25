@@ -5,19 +5,20 @@
                 <input type="text" id="add-year" class="input" placeholder="Rok">   
            
             
-            <input type="text" id="add-description" class="input input-description" placeholder="Opis">
-            <!-- <v-select :options="options"> -->
+            <input type="text" id="add-description" class="input input-description" placeholder="Opis">            
             
+            <div class="select-creators-wrapper">
                 <select v-model="inputsValues.type" name="types" id="types" class="select">
                     <option value="" disabled selected>Dodaj typ</option>
                     <option v-for="option in options" :key="option">{{ option }}</option>
                 </select>
                 <input type="text" id="add-creator" class="input" placeholder="Twórcy">
-            
+            </div>
+
               <input type="text" id="add-banner" class="input" placeholder="Dodaj główny banner">
                <input type="text" id="add-thumbnail" class="input" placeholder="Dodaj miniaturkę">
             <p>Selected: {{inputsValues.type}}</p> 
-            <!-- <p>Title:{{inputsValues.addTitle}}</p> -->
+            <p>Title:{{addTitle}}</p>
 
         </div>
     </div>
@@ -53,6 +54,7 @@ export default {
      width: 100%;
      height: 100%;
      overflow: auto;
+     background: red;
 
     .add-films-wrapper {
         width: 100%;
@@ -72,12 +74,23 @@ export default {
             display: block;
             height: 150px;
             flex-basis: 95%;
+            margin-bottom: 30px;
         }
         
-        .select {
+        .select-creators-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            input {
+                margin-top: 0
+            }
+
+             .select {
             padding: 5px;
-            margin: auto;
-            margin-top: 30px;
+            margin-right: auto;
+            margin-left: auto;;
+            // margin-top: 30px;
             display: inline-block;
             height: 62px;
             color: #444;
@@ -86,7 +99,7 @@ export default {
             width: 47%;
             max-width: 100%; /* useful when width is set to anything other than 100% */
             // box-sizing: border-box;
-            margin: 0;
+            // margin: 0;
             border: 1px solid #707070;
             box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
             appearance: none;
@@ -100,6 +113,8 @@ export default {
             border-color: #FFC200;
             outline: none;
         }
+        }
+       
         
         
     }

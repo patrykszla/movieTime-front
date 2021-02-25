@@ -10,7 +10,7 @@ import FavoriteTitles from '../views/FavoriteTitles.vue';
 import AddedByYou from '../views/AddedByYou.vue';
 import RatedTitles from '../views/RatedTitles.vue';
 import AddNewFilm from "../views/AddNewFilm.vue";
-
+import YourAccount from "../views/YourAccount.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -63,6 +63,11 @@ const routes = [
     path: '/addnewfilm',
     name: 'AddNewFilm',
     component: AddNewFilm
+  },
+  {
+    path: '/youraccount',
+    name: 'YourAccount',
+    component: YourAccount
   }
   
 ]
