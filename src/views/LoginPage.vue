@@ -1,8 +1,5 @@
 <template>
-  <div class="login-page-wrapper">
-      
-            <Navigation></Navigation>
-        
+  <div class="login-page-wrapper">  
     <div class="login-page-input-wrapper">
         <div class="login-page-logo"></div>
         <p>Zaloguj się</p>
@@ -14,10 +11,10 @@
 </template>
 
 <script>
-import Navigation from '../components/Navigation.vue';
+
 
 export default {
-  components: { Navigation },
+  
 name: 'LoginPage',
 };
 </script>
@@ -59,33 +56,11 @@ font-size: 30px;
             background-image: url("../assets/movie-logo2.png")
         }
         .input {
-            border-radius: 4px;
-            border: 1px solid #707070;
-            display: block;
             width: 80%;
-            height: 50px;
-            margin: auto;
-            margin-top: 30px;
-            padding: 5px;
         }
-
-        .input:focus {
-            outline: none;
-        }
-
         .submit {
-            border: none;
             width: 150px;
-            background-color: #FFC200;
         }
-        .submit:focus {
-            transition-duration: 0.4s;
-        }
-        .submit:hover {
-            cursor: pointer;
-            opacity: 0.7;
-        }
-        
     }
 }
 </style>

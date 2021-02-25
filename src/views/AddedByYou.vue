@@ -1,17 +1,14 @@
 <template>
     <div class="wrapper">
-        
-        
-
-        <div class="settings-wrapper">
+        <div class="added-wrapper">
             <SettingsPageHeader :msg="title"></SettingsPageHeader>
-            <div class="account-update-wrapper">
+            <div class="user-added-wrapper">
                 <div class="user-wrapper">
-                    <User></User>
+                    <User></User> 
                 </div>
 
-                <div class="update-wrapper">
-                    <InputsSettings></InputsSettings>
+                <div class="added-wrapper">
+                    <AddedFilms></AddedFilms>
                 </div>
             </div>
             
@@ -22,23 +19,22 @@
 <script>
 import User from "../components/User";
 import SettingsPageHeader from "../components/SettingsPageHeader";
-import InputsSettings from "../components/InputsSettings";
-
+import AddedFilms from "../components/AddedFilms";
 
 export default {
-    name: 'SettingsPage',
-    components: { User, SettingsPageHeader, InputsSettings },
-    data() {
+  name: 'AddedByYou',
+  
+  components: { User, SettingsPageHeader, AddedFilms },
+
+data() {
   return {
-    title: 'Ustawienia konta',
+    title: 'Dodane przez Ciebie',
   };
 }
-  
+
 };
 </script>
-
 <style lang="scss" scoped>
-
 .wrapper{
     width:100%;
     height: 100vh;
@@ -50,13 +46,13 @@ export default {
     background-image: url("../assets/slider-bg.png");
     background-repeat: no-repeat;
 
-    .settings-wrapper {
+    .added-wrapper {
         box-sizing: content-box;
         background-color:#ffffff;
         width: 90%;
         height: 90%;
         
-        .account-update-wrapper {
+        .user-added-wrapper {
             display: flex;
             flex-wrap: nowrap;
             width:90%;
@@ -71,7 +67,7 @@ export default {
             }
         
 
-            .update-wrapper {
+            .added-wrapper {
             width: 66%;
             background-color: #ffffff;
             height: 100%;
@@ -84,7 +80,5 @@ export default {
             }
         }
     }
-    
-
 }
 </style>

@@ -1,38 +1,38 @@
-<template>
-    <div class="wrapper">
-        
-        
 
-        <div class="settings-wrapper">
+<template>
+  
+   <div class="wrapper">
+
+        <div class="add-new-wrapper">
             <SettingsPageHeader :msg="title"></SettingsPageHeader>
-            <div class="account-update-wrapper">
+            <div class="user-add-wrapper">
                 <div class="user-wrapper">
                     <User></User>
                 </div>
-
-                <div class="update-wrapper">
-                    <InputsSettings></InputsSettings>
+                    
+                <div class="add-new">
+                    <AddFilm></AddFilm>
                 </div>
-            </div>
+            </div>                              
             
         </div>
     </div>
-</template>
 
+</template>
 <script>
 import User from "../components/User";
 import SettingsPageHeader from "../components/SettingsPageHeader";
-import InputsSettings from "../components/InputsSettings";
-
+import AddFilm from "../components/AddFilm"; 
 
 export default {
-    name: 'SettingsPage',
-    components: { User, SettingsPageHeader, InputsSettings },
-    data() {
-  return {
-    title: 'Ustawienia konta',
-  };
-}
+  name: 'AddNewFilm',
+  components: { User, SettingsPageHeader, AddFilm  },
+  
+  data () {
+      return {
+          title: 'Dodaj film'
+      }
+  }
   
 };
 </script>
@@ -50,13 +50,13 @@ export default {
     background-image: url("../assets/slider-bg.png");
     background-repeat: no-repeat;
 
-    .settings-wrapper {
+    .add-new-wrapper {
         box-sizing: content-box;
         background-color:#ffffff;
         width: 90%;
         height: 90%;
         
-        .account-update-wrapper {
+        .user-add-wrapper {
             display: flex;
             flex-wrap: nowrap;
             width:90%;
@@ -71,7 +71,7 @@ export default {
             }
         
 
-            .update-wrapper {
+            .add-new{
             width: 66%;
             background-color: #ffffff;
             height: 100%;
@@ -80,11 +80,9 @@ export default {
             justify-content: center;
             flex-direction: column;
             align-items: center;
-
             }
         }
     }
-    
-
 }
 </style>
+

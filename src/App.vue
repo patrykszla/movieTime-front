@@ -1,17 +1,6 @@
 <template>
   <div id="app">
-    <!-- <div id="nav-wrapper">
-      <div class="nav-wrapper-logo">
-        <img src="./assets/movie-logo.png" class="img-logo" alt="MovieTime logo">
-      </div>
-
-      <div class="nav-links-wrapper">
-        <router-link to="/searchfilm"><img class="img-nav" src="./assets/search-outline.png" alt="search"></router-link>
-        <router-link to="/settings"><img class="img-nav" src="./assets/settings-outline.png" alt="settings"></router-link>
-        <router-link to="/searchfilm"><img class="img-nav" src="./assets/user-o.png" alt="user"></router-link>
-      </div>
-    </div>
-    -->
+ 
     <router-view/> 
     
   </div>
@@ -19,19 +8,20 @@
 
 <script>
 export default {
- 
-//  computed: {
-//   isLogin() {
-//      return this.$route.name === 'registration'
-//   }
-// }
-  
+
 }
 </script>
 <style lang="scss">
 
+// @import url("https://fonts.googleapis.com/css?family=Varela+Round");
+@font-face {
+  font-family: "OCR-A";
+  src: local("OCR-A"),
+  url(./fonts/OCR-A-Regular.ttf) format("truetype");
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'OCR-A', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -42,49 +32,35 @@ body {
   padding:0px;
   margin: 0px;
 }
+.input {
+    font-family: 'OCR-A';
+    border-radius: 4px;
+    border: 1px solid #707070;
+    display: block;
+    
+    height: 50px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid #FFC200;
+}
+.submit {
+  border: none;
+  width: 150px;
+  background-color: #FFC200;
+}
+.submit:focus {
+    transition-duration: 0.4s;
+}
+.submit:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
 
 
-// #nav-wrapper {
-//   display: flex;
-//   justify-content: flex-end;
-//   align-items: center;
-//   height: 90px;
-
-// .nav-links-wrapper {
-//   width: 33%;
-//   justify-content: center;
-//   display: flex;
-//   align-items: center;
-
-// }
-// .nav-wrapper-logo {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width:33%;
-//   height: 90px;
-  
-// }
-// // .img-logo{
-// //   width: 33%;
-// //   height: 55px;
-// // }
-// .img-nav {
-//   width: 100%;
-//   height: 100%;
-// }
-
-//   a {
-//     display:inline-block;
-//     height: 35px;
-//     width:35px;
-//     margin: 10px;
-//     font-weight: bold;
-//     color: #2c3e50;
-
-//     &.router-link-exact-active {
-//       color: #42b983;
-//     }
-//   }
-// }
 </style>

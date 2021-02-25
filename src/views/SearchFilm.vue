@@ -27,6 +27,7 @@
              name="search" 
              v-model="searchValue"
              @input="handleInput"
+             placeholder="search"
              />
         </div>
         <div>
@@ -37,6 +38,7 @@
                 </li>    
             </ul>    
         </div>
+
     </div>      
 </template>
 <script>
@@ -160,7 +162,7 @@ export default {
     align-items: center;
     margin: 0;
     width: 100%;
-    background-color: blue;
+    background-color: white;
     height: 100vh;
     .search {
         width: 80%;

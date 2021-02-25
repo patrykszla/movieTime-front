@@ -1,42 +1,41 @@
 <template>
-    <div class="wrapper">
-        
-        
+  
+   <div class="wrapper">
 
-        <div class="settings-wrapper">
+        <div class="favorites-wrapper">
             <SettingsPageHeader :msg="title"></SettingsPageHeader>
-            <div class="account-update-wrapper">
+            <div class="user-favorite-wrapper">
                 <div class="user-wrapper">
                     <User></User>
                 </div>
 
-                <div class="update-wrapper">
-                    <InputsSettings></InputsSettings>
+                <div class="favorite-titles">
+                    <FavoriteFilms></FavoriteFilms>
                 </div>
-            </div>
+            </div>                              
             
         </div>
     </div>
+
 </template>
 
 <script>
 import User from "../components/User";
 import SettingsPageHeader from "../components/SettingsPageHeader";
-import InputsSettings from "../components/InputsSettings";
-
+import FavoriteFilms from "../components/FavoriteFilms";
 
 export default {
-    name: 'SettingsPage',
-    components: { User, SettingsPageHeader, InputsSettings },
-    data() {
-  return {
-    title: 'Ustawienia konta',
-  };
-}
+  name: 'FavoriteTitles',
+  components: { User, SettingsPageHeader, FavoriteFilms },
+  
+  data () {
+      return {
+          title: 'Ulubione tytuły'
+      }
+  }
   
 };
 </script>
-
 <style lang="scss" scoped>
 
 .wrapper{
@@ -50,13 +49,13 @@ export default {
     background-image: url("../assets/slider-bg.png");
     background-repeat: no-repeat;
 
-    .settings-wrapper {
+    .favorites-wrapper {
         box-sizing: content-box;
         background-color:#ffffff;
         width: 90%;
         height: 90%;
         
-        .account-update-wrapper {
+        .user-favorite-wrapper {
             display: flex;
             flex-wrap: nowrap;
             width:90%;
@@ -71,7 +70,7 @@ export default {
             }
         
 
-            .update-wrapper {
+            .favorite-titles {
             width: 66%;
             background-color: #ffffff;
             height: 100%;
@@ -80,11 +79,8 @@ export default {
             justify-content: center;
             flex-direction: column;
             align-items: center;
-
             }
         }
     }
-    
-
 }
 </style>

@@ -22,14 +22,14 @@
                         <div class="type">
                             <p class="paragraph" >Typ:</p>
                             <div class="type-wrapper">
-                                <div class="rectangle rectangle-gold type">{{ movie.type }}</div>
+                                <div class="rectangle rectangle-gold">{{ movie.type }}</div>
                             </div>                        
                         </div>
                         
                         <div class="creators-wrapper">
                             <p class="paragraph">Twórcy:</p>
                             <div class="creators">
-                            <div class="rectangle rectangle-grey " v-for="creator in movie.creators" :key="creator">{{ creator}}</div>
+                                <div class="rectangle rectangle-grey " v-for="creator in movie.creators" :key="creator">{{ creator}}</div>
                             </div>
                         </div>
                     </div>
@@ -54,13 +54,24 @@
                 </div>
             </div>
         </div>
+
+        <div class="film-details-recomendations">
+            
+            <Recomendations></Recomendations>
+
+        </div>
+        <div class="film-details-footer">
+            <Footer></Footer>
+        </div>
     </div>
 </template>
 
 <script>
+import Footer from "../components/Footer"
 import Navigation from "../components/Navigation"
+import Recomendations from "../components/Recomendations.vue"
 export default {
-    components:{ Navigation },
+    components:{ Navigation, Recomendations, Footer},
     name: 'FilmDetails',
     
     data () { 
@@ -80,10 +91,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ 
 
 #wrapper{ 
     width: 100%;
-    height: 100vh;
+    height: 200vh;
     
     
     
@@ -101,6 +113,9 @@ export default {
         color: transparent;
         text-shadow: 0 0 1px rgba(255,255,255, 0.4);
         
+        h1 {
+            font-size: 70px;
+        }
     }
 
     .movie-title {
@@ -128,15 +143,8 @@ export default {
         .movie-description {
             width: 66%;
 
-            
-            .type-creator-wrapper {
-                display: flex;
-                flex-wrap: nowrap;     
-                
-                .type {
-                    width: 50%;
-                    
-                    .rectangle {
+            .rectangle {
+                        // width: 
                         text-align: center;
                         padding: 5px;
                         // margin: 10px;
@@ -146,17 +154,28 @@ export default {
                         color:#ce9c00;
                         opacity: 0.7;
                         border-radius: 4px;
+                        margin-right: 15px;
+                        width: fit-content;
                     } 
+            
+            .type-creator-wrapper {
+                display: flex;
+                flex-wrap: nowrap;     
+                
+                .type {
+                    width: 50%;
+                    
+                    
                 }       
 
                 .creators    {
                     display:flex;
                     flex-direction: row;
-                    // width:50%;
+                    width:50%;
                     .rectangle-grey {
                         text-align: center;
-                        padding: 5px;
-                        margin-right: 15px;
+                        // padding: 5px;
+                        
                         // width: auto;
                         // margin: auto;
                         background-color: rgba(51,51,51,0.8);
@@ -166,6 +185,26 @@ export default {
                     } 
                 }   
             }
+        }
+        .film-details-recomendations {
+            width: 100%;
+            display:flex;
+            flex-direction: row;
+
+            // .recomendations-left-side{
+            //     width: 33%;
+            //     height: 100%;
+                
+            //     p { 
+            //         display: inline-block;
+            //     }
+            // }
+            
+            // .recomendations-right-side {
+            //     width: 66%;
+            //     height: 100%;
+            // }
+
         }
     }
 </style>
