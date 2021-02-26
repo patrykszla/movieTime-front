@@ -40,6 +40,7 @@ export default {
 <style lang="scss" scoped>
 
 .wrapper{
+     font-size: 18px;
     width:100%;
     height: 100vh;
    display: flex;
@@ -59,7 +60,7 @@ export default {
         .account-update-wrapper {
             display: flex;
             flex-wrap: nowrap;
-            width:90%;
+            
             height:80%;
             margin: auto;
             background-color: #ffffff;

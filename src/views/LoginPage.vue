@@ -3,9 +3,9 @@
     <div class="login-page-input-wrapper">
         <div class="login-page-logo"></div>
         <p>Zaloguj się</p>
-        <input type="text" id="login-email" class="input" placeholder="E-mail"> 
-        <input type="text" id="password" class="input" placeholder="Hasło">
-        <input type="submit" id="submit" class="input submit" value="Zaloguj się">
+        <input v-model="Login" type="text" id="Login" class="input" placeholder="E-mail"> 
+        <input v-model="Password" type="text" id="Password" class="input" placeholder="Hasło">
+        <input @click="validationInputs" type="submit" id="submit" class="input submit" value="Zaloguj się">
     </div>
   </div>
 </template>
@@ -16,7 +16,31 @@
 export default {
   
 name: 'LoginPage',
+methods: {
+    validationInputs() {
+        if(this.inputsValues.Login == null) {
+                alert("UZUPEŁNIJ BRAKUJĄCE POLE LOGIN")
+        } else if(this.inputsValues.Password == null) {
+            alert("UZUPEŁNIJ BRAKUJĄCE POLE HASŁO")
+        } else {
+            console.log(this.getInputValues())
+        }
+    },
+    getInputValues() {
+        return this.inputsValues
+    }
+},
+data(){
+    return {
+        inputsValues: {
+            Login: null,
+            Password: null
+        }
+    }
+},
+
 };
+
 </script>
 <style lang="scss" scoped>
 

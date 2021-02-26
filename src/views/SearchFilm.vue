@@ -1,179 +1,139 @@
-
 <template>
-    <div class="wrapper">
-        <div class='nav'>
-                <Navigation></Navigation>
-        </div>
-       <div class='slider-wrapper'>
-               <vueper-slides
-                class="no-shadow"
-                :visible-slides="2"
-                arrows-outside
-                :dragging-distance="70"
-                >
-                    <template v-slot:arrow-left>
-                        <i class="icon icon-arrow-left" id="icon-arrow-left"/>
-                    </template>
-                    <template v-slot:arrow-right>
-                        <i class="icon icon-arrow-right" id="icon-arrow-right"  />
-                    </template>
-                <vueper-slide v-for="slide in slides" :key="slide.id" :title="slide.title" :image="slide.image"  />
-                </vueper-slides>
-       </div>
-        <div class="search">
-            <label for="search-movie"></label>
-            <input 
-            id="search-movie"
-             name="search" 
-             v-model="searchValue"
-             @input="handleInput"
-             placeholder="search"
-             />
-        </div>
-        <div>
-            <ul>
-            <li v-for="item in apiResults" :key="item.id">
-                <p>{{ item.overview }}</p>
-                
-                </li>    
-            </ul>    
-        </div>
+  <div class="search-film-wrapper"> 
+      <div class="search-film-second-wrapper">
+          <div class="input-search-wrapper">
+              <input type="text" class="search-input" placeholder="Znajdź film..">
+              <button class="search"><img src="../assets/search-outline-white.png" alt="search"></button>
+          </div>
+      </div>
+      
+      <div class="found-wrapper">
+          <div class="found-film" v-for="movie in movies" :key="movie.title">
+              <div class="film-image" v-bind:style="{ backgroundImage: 'url(' + movie.image + ')' }">
 
-    </div>      
+                </div>
+                <p>{{movie.title}}</p>
+          </div>
+          
+      </div>
+  </div>
 </template>
+
 <script>
-import { VueperSlides, VueperSlide } from 'vueperslides';
-import 'vueperslides/dist/vueperslides.css';
-
-import axios from 'axios';
-import Navigation from '../components/Navigation.vue';
-
-const cos = 'https://api.themoviedb.org/3/search/movie?api_key=bd035d96c0f6075f91b68f394a5b79f1&query=Jack'
-
-const api= 'https://api.themoviedb.org/3/'
-
-const apiKey = 'bd035d96c0f6075f91b68f394a5b79f1'
-
-const apiNasa ='https://images-api.nasa.gov/search'
-
 export default {
-    name: 'SearchFilm',
-    data () {
-        return {
-            searchValue: '',
-            apiResults: [],
-            slides: [
-                {
-                id: 'slide-1',
-            title: 'Slide 1',
-            content: 'content 1', 
-            // image: url("../assets/user-o.png")
-            image: require('@/assets/user-o.png')
-                },
-                {
-                    id: 'myslide',
-            title: 'my slide2',
-            content: 'content 2',
-            image: require('@/assets/movie-logo.png')
-                },
-                {
-                    id: 'myslide2',
-            title: 'my slide3',
-            content: 'content 3',
-            image: require('@/assets/settings-outline.png')
-                },
-                {
-                    id: 'myslide3',
-            title: 'my slide4',
-            content: 'content 4',
-            image: require('@/assets/search-outline.png')
-                },
-                ]
-        }
-    },
-    components: {
-         VueperSlides, VueperSlide, Navigation },
-    
-    methods: {
-
-        handleInput() {
-            axios.get(`${api}search/movie?api_key=${apiKey}&query=${this.searchValue}`)
-                .then((response) => {
-                    this.apiResults = response.data.results;
-                    console.log(this.apiResults);
-                    // console.log(response.data.results);
-                })
-                .catch((error) =>{
-                    console.log(error);
-                });
-        },
-    },
+  name: 'SearchFilm',
+  data () {
+      return{
+            movies: [{
+                title: 'tytul',
+                image: require('@/assets/android-star.png')
+            },
+            {
+                title: 'tytul2',
+            image: require('@/assets/android-star.png')
+            }
+            ,{
+                title: 'tytul3',
+            image: require('@/assets/android-star.png')
+            },
+            
+            ]
+            
+          
+      }
+  }
+  
 };
 </script>
-
 <style lang="scss" scoped>
-.slider-wrapper {
-    height: 500px;
-    width: 80%;
-    background: white;
-    // .icon-arrow-right {
-    //    height: 50px;
-    //    width: 50px;
-    //     // background-image: url('../assets/ios-arrow-round-back.svg');
-    //     background-color: red;
-    // }
+.search-film-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: #FFFF;
     
-}
-
-.icon-arrow-right:before {
-  display: block;
-  content: ' ';
-  background-image: url('../assets/arrow-round-next.png');
-  background-size: 28px 28px;
-  height: 28px;
-  width: 28px;
-}
-
-.icon-arrow-left:before {
-  display: block;
-  content: ' ';
-  background-image: url('../assets/arrow-round-back.png');
-  background-size: 28px 28px;
-  height: 28px;
-  width: 28px;
-  
-}
-// .vueperslides_arrow {
-//         stroke-width: 2;
-//         color: yellow;
-//     }
-//     .vueperslides__arrow--next svg {
-//     height:30px;
-//     width:30px;
-//     background: url(../assets/ios-arrow-round-back.svg);
-// }
-.nav {
-    height: 100px;
-    width: 100%;
-}
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    width: 100%;
-    background-color: white;
-    height: 100vh;
-    .search {
-        width: 80%;
+    .search-film-second-wrapper{
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        background-color: #FFFF;
+        height: 350px;
+        
+    .input-search-wrapper {
+        font-family: Roboto;
+            font-size: 28px;
+        width: 100%;
+        height:  110px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    input {
-    height: 30px;
-    border: 1px solid #000000;
-    }
+        .search {
+            border-radius: 4px;
+            display: inline-block;
+            height: 110px;
+            width: 135px;
+            background-color: #FFC200;
+            justify-content: center;
+            transition: 0.3s all;
 
-    input:focus {
-    outline: none;
+            img {
+                
+                width: 60px;
+                height: 60px;
+            }
+
+           
+        }
+         .search:focus {
+                outline: none;
+                border: none;
+            }
+            .search:hover {
+                opacity: 0.8;
+                cursor: pointer;
+            }
+         .search-input {
+             padding-left: 20px;
+             font-family: Roboto;
+            font-size: 28px;
+            width: 60%;
+            height: 90px;
+        }
+
+        .search-input:hover {
+            cursor: pointer;
+        }
+        .search-input:focus {
+            outline: none;
+            cursor: pointer;
+        }
     }
+   .found-wrapper {
+       margin: auto;
+       height: auto;
+       width: 90%;
+       overflow: auto;
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
+       flex-wrap: wrap;
+       background-color: #FFFF;
+
+       .found-film {
+           flex-basis: 15%;
+           margin: 20px;
+           height: 200px;
+           background-color: white;
+
+           .film-image {
+               width: 100%;
+               height: 80%;
+               background-size: 100% 80%;
+               background-repeat: no-repeat;
+           }
+       }
+   }
 }
 </style>

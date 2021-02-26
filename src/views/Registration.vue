@@ -3,11 +3,14 @@
     <div class="registration-page-input-wrapper">
         <div class="registration-page-logo"></div>
         <p>Zarejestruj się</p>
-        <input type="text" id="registration-nick" class="input" placeholder="Nick"> 
-        <input type="text" id="registration-email" class="input" placeholder="E-mail">  
-        <input type="text" id="registration-password" class="input" placeholder="Hasło">
-        <input type="text" id="registration-repeat-password" class="input" placeholder="Powtórz hasło">
-        <input type="submit" id="registration-submit" class="input submit" value="Zarejestruj się" v-on:click="displayNav">
+        <input v-model="registrationInputsValues.Name" type="text" id="Name" class="input" placeholder="Imie"> 
+        <input v-model="registrationInputsValues.Surname" type="text" id="Surname" class="input" placeholder="Nazwisko">
+        <input v-model="registrationInputsValues.Email" type="email" id="Email" class="input" placeholder="E-mail">  
+        
+        <input v-model="registrationInputsValues.Login" type="text" id="Login" class="input" placeholder="Login">
+        <input v-model="registrationInputsValues.Password" type="text" id="Password" class="input" placeholder="Hasło">
+        <input v-model="repeatObj.repeatPassword" type="text" id="registration-repeat-password" class="input" placeholder="Powtórz hasło">
+        <input @click="validationInputs" type="submit" id="registration-submit" class="input submit" value="Zarejestruj się">
         
     </div>
   </div>
@@ -16,18 +19,73 @@
 <script>
 export default {
 name: 'Registration',
+data() {
+    return {
+        repeatObj: {
+            repeatPassword: null,
+        },
 
-methods: {
-    // display() {
-    //     this.$refs.myId.st
-    //     document.getElementById('registration-submit').addEventListener('click', this.displayNav);
-    // },
-    displayNav: function (event) {
-        // this.$refs.registration-nick.classList.add("display-none")
-            document.getElementById("registration-nick").classList.add("display-none");
-        console.log('kliknales')
-        }
+        registrationInputsValues: {
+                Name: null,
+                Surname: null,
+                Email: null,
+                Login: null,
+                Password: null,
+                
+            },
     }
+},
+methods: {
+   getInputsValues() {
+       return this.registrationInputsValues;
+   },
+    validationInputs() {
+        // this.getInputValues();
+
+        
+             if(this.registrationInputsValues.Name == null) {
+                 alert('Uzupełnij puste pola')
+             } else if(this.registrationInputsValues.Surname == null) {
+                 alert('Uzupełnij puste pola')
+             } else if(this.registrationInputsValues.Email == null) {
+                 alert('Uzupełnij puste pola')
+             } else if(this.registrationInputsValues.Login == null) {
+                 alert('Uzupełnij puste pola')
+             } else if(this.registrationInputsValues.Password == null) {
+                 alert('Uzupełnij puste pola')
+             } else if(this.registrationInputsValues.Password != this.repeatObj.repeatPassword) {
+                 alert('Sprawdź czy podane hasła są takie same')
+             } else {
+                 console.log(this.getInputsValues());
+             }
+        //  validationInputs() {
+        //      for(const [key, value] of Object.entries(this.inputsValues)) {
+        //         // console.log(value);
+
+        //         if(value == null ) {
+        //             alert('Uzupełnij puste pola')
+                    
+        //             break
+                   
+        //         console.log(key)
+        //         }
+            //  }
+
+        // if(this.registrationInputsValues.Password === this.repeatObj.repeatPassword) {
+        //     console.log('takie same')
+        // } else { 
+        //     console.log(' rozne')
+        // }
+
+       
+        // if ( this.registrationInputsValues.Password === repeatPassword) {
+        //     console.log('rozne')
+        // }
+    }
+    },
+     getInputsValues() {
+        console.log(this.registrationInputsValues);
+    },
 }
 
 
@@ -78,7 +136,7 @@ font-size: 30px;
         }
 
         .submit {
-            width: 150px;
+            width: auto;
         }   
     }
 }

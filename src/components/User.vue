@@ -27,6 +27,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .user {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
     width: 100%;
     height: 100%;
     display: flex;
@@ -47,7 +48,7 @@ export default {
     .row {
         margin-top: 20px;
             display: flex;
-        justify-content: left;
+        justify-content: center;
         align-items: center;
 
         img {
