@@ -104,7 +104,7 @@ export default {
 .movie-image-title {
         width:100%;
         height: 80vh;
-        background-size: cover;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
         display:flex;
         flex-wrap:nowrap;
@@ -136,7 +136,8 @@ export default {
         .movie-icon {
             width: 33%;
             height: 200px;
-            background-size: cover;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
             margin: 30px;
         }
 

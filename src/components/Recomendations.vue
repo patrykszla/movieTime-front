@@ -9,8 +9,6 @@
                 <vueper-slides
                     class="no-shadow"
                     :visible-slides="4"
-                    
-                    :gap="3"
                     :dragging-distance="70"
                     :arrows-outside="false"
                    
@@ -132,8 +130,9 @@ export default {
             // }
 
             .vueperslide {
-            width: 80%;
-            height:80%;
+                background-size: 80% 80%;
+                background-repeat: no-repeat;
+                height:80%;
             }
             //  .vueperslides__bullets {
             //      top: 30px;
@@ -155,35 +154,21 @@ export default {
                     // top: 0;
                 }   
                 
-                .vueperslides__arrow--next {
-                    //  right: -12%;
-                    top: 117%;
-                    right: 15%;
-                    // bottom: 30%;
-                }
                 
-                .vueperslides__arrow--prev {
-                   top: 117%;
-                    left: 15%;
-                }
                 .icon-arrow-right:before {
                     display: block;
                     content: ' ';
                     background-image: url('../assets/arrow-round-next.png');
                     background-repeat: no-repeat;
-                    // background-size: cover;
-                    // background-size: 28px 28px;
                     height: 35px;
                     width: 50px;
                  }
 
                  .icon-arrow-left:before {
-                    // margin: 10px;
                     display: block;
                     content: ' ';
                     background-image: url('../assets/arrow-round-back.png');
                     background-repeat: no-repeat;
-                    // background-size: 28px 28px;
                     height: 35px;
                     width: 50px;
                     margin: 0px;
@@ -205,13 +190,6 @@ export default {
                     right: 0;
                     z-index: 2;
                 }
-
-                //  .vueperslide__title {
-                //      float: bottom;
-                //      position: absolute;
-                //      bottom: -20px;
-                //      z-index: 1;
-                //  }
         }
     }
 

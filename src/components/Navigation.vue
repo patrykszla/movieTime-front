@@ -8,7 +8,7 @@
             <div class="nav-links-wrapper">
                 <router-link to="/searchfilm"><img class="img-nav" src="../assets/search-outline.png" alt="search"></router-link>
                 <router-link to="/settings"><img class="img-nav" src="../assets/settings-outline.png" alt="settings"></router-link>
-                <router-link to="/searchfilm"><img class="img-nav" src="../assets/user-o.png" alt="user"></router-link>
+                <router-link to="/youraccount"><img class="img-nav" src="../assets/user-o.png" alt="user"></router-link>
             </div>
         </div>
     

@@ -4,9 +4,11 @@
 </template>
 
 <script>
+import LatestSlider from "../components/LatestSlider.vue";
 export default {
+
   name: 'Home',
-  
+  components: {LatestSlider}
 };
 </script>
 <style lang="scss" scoped>
@@ -14,4 +16,4 @@ export default {
   background: red;
   margin: 10px;
 }
-</style>
+</style> 

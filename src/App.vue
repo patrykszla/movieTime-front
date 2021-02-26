@@ -65,6 +65,7 @@ body {
     outline: none;
 }
 .submit:hover {
+  border: none;
   outline: none;
     cursor: pointer;
     opacity: 0.7;
