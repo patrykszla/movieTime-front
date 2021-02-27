@@ -19,13 +19,14 @@ const routes = [
     name: 'Home',
     component: Home
   },
+
   {
-    path: '/searchfilm',
+    path: '/search',
     name: 'SearchFilm',
     component: SearchFilm
   },
   {
-    path: '/loginpage',
+    path: '/login',
     name: 'LoginPage',
     component: LoginPage
   },
@@ -34,10 +35,10 @@ const routes = [
     name: 'Registration',
     component: Registration
   },
-  { 
-  path: '/settings',
-  name: 'SettingsPage',
-  component: SettingsPage
+  {
+    path: '/settings',
+    name: 'SettingsPage',
+    component: SettingsPage
   },
   {
     path: '/filmdetails',
@@ -68,14 +69,35 @@ const routes = [
     path: '/youraccount',
     name: 'YourAccount',
     component: YourAccount
+  },
+  //if not found redirect to home
+  {
+    path: '*',
+    redirect: '/'
   }
-  
 ]
 
-const router = new VueRouter({
+export const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
+router.beforeEach((to, from, next) => {
 
-export default router
+  const publicPages = ['/login', '/registration', '/'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
+
+  if (authRequired && !loggedIn) {
+    return next('/login');
+  }
+  if(loggedIn){
+    if(publicPages.includes(to.path) && to.path != '/'){
+      return next('/');
+    }
+  }
+
+  next();
+});
+
+// export default router
