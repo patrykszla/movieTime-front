@@ -10,7 +10,8 @@ import FavoriteTitles from '../views/FavoriteTitles.vue';
 import AddedByYou from '../views/AddedByYou.vue';
 import RatedTitles from '../views/RatedTitles.vue';
 import AddNewFilm from "../views/AddNewFilm.vue";
-import YourAccount from "../views/YourAccount.vue"
+import YourAccount from "../views/YourAccount.vue";
+import StartingPage from "../views/StartingPage.vue";
 Vue.use(VueRouter)
 
 const routes = [
@@ -69,7 +70,13 @@ const routes = [
     path: '/youraccount',
     name: 'YourAccount',
     component: YourAccount
+  }, 
+  {
+    path: '/start',
+    name: 'StartingPage',
+    component: StartingPage
   },
+  
   //if not found redirect to home
   {
     path: '*',

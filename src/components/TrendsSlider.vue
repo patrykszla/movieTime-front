@@ -1,9 +1,10 @@
 <template>
-    <div class="latest-slider-wrapper">
+    <div class="trends-slider-wrapper">
         
         
-        <h1>Twoje filmy w jednym miejscu</h1>
-        <div class='latest-slider'>
+        
+        <h1>Trendy</h1>
+        <div class='trends-slider'>
             
                 <vueper-slides
                     class="no-shadow"
@@ -29,8 +30,8 @@
 import { VueperSlides, VueperSlide } from 'vueperslides';
 import 'vueperslides/dist/vueperslides.css';
 export default {
-    name: 'LatestSlider',
-    components: {VueperSlides, VueperSlide},
+  name: 'TrendsSlider',
+   components: {VueperSlides, VueperSlide},
      data () {
         return {
             slides: [
@@ -92,15 +93,15 @@ export default {
 
 <style lang="scss" >
 
-    .latest-slider-wrapper {
-        
-       text-align: right;
+.trends-slider-wrapper {
+        color: #FFFFFF;
+       text-align: left;
         width: 90%;
         height: auto;
+        
 
         h1{
-            margin-top: 100px;
-            color: #FFF;
+            color: #FFFFFF;
             font-size: 50px;
             display: inline-block;
             width: 50%;
@@ -108,10 +109,10 @@ export default {
             
         }
 
-        .latest-slider {
+        .trends-slider {
             align-self:flex-end;
             height: auto;
-
+            
              .vueperslide {
             background-size: 80% 80%;
             background-repeat: no-repeat;
@@ -172,8 +173,10 @@ export default {
                     z-index: 2;
                 }
     }
-    
+        
 
-     
+       
+       
+           
             
 </style>
