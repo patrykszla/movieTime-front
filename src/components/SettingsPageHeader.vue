@@ -2,7 +2,7 @@
 
     <div class="page-title">
                 <img src="../assets/movie-logo.png" alt="movieTime logo">
-                <p class="paragraph-page-title">{{ msg }}</p>
+                <h2 class="paragraph-page-title">{{ msg }}</h2>
     </div>
   
 </template>
@@ -23,22 +23,19 @@ export default {
 .page-title {
     box-sizing: content-box;
     display: flex;
-    text-align: left;
+    flex-flow: row;
     align-items: center;
-    justify-content: center;
-    height:15%;
-    width: 50%;
-    margin-left: 15px;
+    justify-content: flex-start;
     background-color: #FFFFFF;
+    padding: 10px;
     
     img {
-        height: 82px;
-        width: 116px;
+        width: 120px;
     }
-    p {
+    h2 {
         margin-left: 20px;
-        width:80%;
-        display: inline-block;
+        font-weight: normal;
+        font-size: 24px;
     }
 }
 
