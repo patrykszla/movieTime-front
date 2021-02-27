@@ -38,7 +38,7 @@ function register(name, surname, email, login, password){
     return fetch(`${config.apiUrl}/User/register`, requestOptions)
         .then(handleResponse)
         .then(register => {
-            console.log(register)
+            return register;
         });
 }
 

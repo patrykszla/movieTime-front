@@ -32,7 +32,7 @@ export const authentication = {
         register({dispatch, commit}, {Name, Surname, Email, Login, Password}){
           return userService.register(Name, Surname, Email, Login, Password).then(
                 register =>{
-                    console.log(register)
+                    router.push("Registration");
                 },
                 error => {
                   
