@@ -1,9 +1,10 @@
 <template>
-    <div class="latest-slider-wrapper">
+    <div class="popular-slider-wrapper">
         
         
-        <h1>Twoje filmy w jednym miejscu</h1>
-        <div class='latest-slider'>
+        
+        <h1>Popularne</h1>
+        <div class='popular-slider'>
             
                 <vueper-slides
                     class="no-shadow"
@@ -29,8 +30,8 @@
 import { VueperSlides, VueperSlide } from 'vueperslides';
 import 'vueperslides/dist/vueperslides.css';
 export default {
-    name: 'LatestSlider',
-    components: {VueperSlides, VueperSlide},
+  name: 'PopularSlider',
+   components: {VueperSlides, VueperSlide},
      data () {
         return {
             slides: [
@@ -92,15 +93,15 @@ export default {
 
 <style lang="scss" >
 
-    .latest-slider-wrapper {
+.popular-slider-wrapper {
         
-       text-align: right;
-        width: 90%;
+       text-align: left;
+        
         height: auto;
+        width: 90%;
 
         h1{
-            margin-top: 100px;
-            color: #FFF;
+            color: #333333;
             font-size: 50px;
             display: inline-block;
             width: 50%;
@@ -108,10 +109,10 @@ export default {
             
         }
 
-        .latest-slider {
+        .popular-slider {
             align-self:flex-end;
             height: auto;
-
+            
              .vueperslide {
             background-size: 80% 80%;
             background-repeat: no-repeat;
@@ -121,7 +122,7 @@ export default {
        
            
             .vueperslides__bullet .default {
-                    background-color: #FFFFFF;
+                    background-color: #333333;
                     border: none;
                     box-shadow: none;
                     transition: 0.3s;
@@ -172,8 +173,10 @@ export default {
                     z-index: 2;
                 }
     }
-    
+        
 
-     
+       
+       
+           
             
 </style>

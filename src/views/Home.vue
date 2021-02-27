@@ -1,5 +1,7 @@
+
 <template>
   <div class="home"> 
+    
   </div>
 </template>
 
@@ -12,8 +14,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.comment {
-  background: red;
-  margin: 10px;
+.home {
+ width: 100% ;
+ height: 1000px;
+ background-color: red;
 }
 </style> 
