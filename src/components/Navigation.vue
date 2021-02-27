@@ -9,6 +9,7 @@
                 <router-link to="/searchfilm"><img class="img-nav" src="../assets/search-outline.png" alt="search"></router-link>
                 <router-link to="/settings"><img class="img-nav" src="../assets/settings-outline.png" alt="settings"></router-link>
                 <router-link to="/youraccount"><img class="img-nav" src="../assets/user-o.png" alt="user"></router-link>
+                <button  @click="logOut" class="btn-log-out"><img src="../assets/log-out-outline.png" class="img-nav" alt="log out"></button>
             </div>
         </div>
     
@@ -21,7 +22,18 @@
 <script>
 
 export default {
-    name: 'Navigation',
+  name: 'Navigation',
+
+    
+
+    methods: {
+      
+      logOut() {
+        const { dispatch } = this.$store;
+          dispatch("authentication/logout", console.log('logout'));
+        }
+      },
+    
 };
 </script>
 
@@ -43,6 +55,27 @@ export default {
   justify-content: center;
   display: flex;
   align-items: center;
+
+    .btn-log-out {
+       display:inline-block;
+    height: 35px;
+    width:35px;
+    margin: 10px;
+     background-color:#fff;
+     border: none;
+    
+    }
+    .btn-log-out:hover {
+      outline: none;
+      cursor: pointer;
+    }
+    .btn-log-out:focus {
+      outline: 0 !important;
+    }
+
+    .btn-log-out img:focus {
+      outline: none;
+    }
 
 }
 .nav-wrapper-logo {
@@ -70,6 +103,7 @@ export default {
       color: #42b983;
     }
   }
+  
 }
 
 </style>

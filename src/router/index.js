@@ -17,8 +17,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'StartingPage',
+    component: StartingPage
   },
 
   {
@@ -72,9 +72,9 @@ const routes = [
     component: YourAccount
   }, 
   {
-    path: '/start',
-    name: 'StartingPage',
-    component: StartingPage
+    path: '/home',
+    name: 'Home',
+    component: Home
   },
   
   //if not found redirect to home
