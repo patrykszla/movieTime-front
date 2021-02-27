@@ -4,6 +4,9 @@ import Vuex from 'vuex'
 import { alert } from './alert.module';
 import { authentication } from './authentication.module';
 import { users } from './users.module';
+import { rated } from './rated.module';
+import { favourite } from './favourite.module';
+import { movie } from './movie.module';
 
 Vue.use(Vuex)
 
@@ -17,6 +20,9 @@ export default new Vuex.Store({
   modules: {
     alert,
     authentication,
-    users
+    users,
+    movie,
+    rated,
+    favourite
   }
 })
